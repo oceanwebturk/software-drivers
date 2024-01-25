@@ -1,0 +1,33 @@
+{
+ "name": "oceanwebturk/software-drivers",
+ "description": "SoftWare Drivers for OceanWebTurk",
+ "type": "oceanwebturk-core",
+ "keywords":["oceanwebturk","framework","software","drivers"],
+ "license": "MIT",
+ "homepage":"https://github.com/oceanwebturk/software-drivers",
+ "support":{
+   "source": "https://github.com/oceanwebturk/software-drivers"
+ },
+ "require":{
+  "php":">=7.4"
+ },
+ "config":{
+  "optimize-autoloader": true,
+  "preferred-install": "dist",
+  "sort-packages": true,
+  "classmap-authoritative": true
+ },
+ "autoload": {
+  "psr-4": {
+    "OWT\\SoftWareDrivers\\": ""
+  }
+ },
+ "extra":{
+  "oceanwebturk":{
+   "providers":[
+    "OWT\\SoftWareDrivers\\SoftWareServiceProvider"
+   ]
+  }
+ },
+ "minimum-stability": "dev"
+}
