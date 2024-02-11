@@ -2,8 +2,8 @@
 
 namespace OWT\SoftWareDrivers;
 
-use OceanWT\Config;
-use OceanWT\Support\ServiceProvider;
+use OceanWebTurk\Config;
+use OceanWebTurk\Support\ServiceProvider;
 
 class SoftWareServiceProvider extends ServiceProvider{
  /**
@@ -24,14 +24,12 @@ class SoftWareServiceProvider extends ServiceProvider{
  {
   $path=realpath(__DIR__."/../")."/";
   $dockerCompose=$path."docker-compose.yml";
+  copy($dockerCompose,config("software-drivers-conf::software")->publish_root_path."docker-compose.yml");
   switch(isset($params[2])){
     case 'docker':
      $GLOBALS['docker_files']=[
-      $dockerCompose=>config("software-drivers-conf::software")->publish_root_path."docker-compose.yml"
-     ];
      $GLOBALS['message']="
 ";
-     copy($dockerCompose,config("software-drivers-conf::software")->publish_root_path."docker-compose.yml");
      array_map(function($file){
       $path=realpath(__DIR__."/../")."/";
       if(!is_dir(config("software-drivers-conf::software")->publish_root_path."docker/")){
